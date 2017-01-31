@@ -1,3 +1,13 @@
+
+This is a fork of the PBC library that adds the automatic detection of the 
+presence of the TCMalloc library, which can provide a better performance.
+
+To install the TCMalloc library in Ubunutu, please
+
+      sudo apt-get install libgoogle-perftools-dev
+
+=============================================================================
+
 THE PBC LIBARY
 
 The PBC (Pairing-Based Crypto) library is a C library providing low-level
