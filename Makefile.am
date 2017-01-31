@@ -58,12 +58,12 @@ libpbc_la_SOURCES = arith/field.c arith/z.c \
 	ecc/eta_T_3.c \
 	ecc/param.c ecc/a_param.c ecc/d_param.c ecc/e_param.c \
 	ecc/f_param.c ecc/g_param.c
-libpbc_la_LDFLAGS = -lgmp -lm -version-info $(SO_VERSION) $(PBC_LDFLAGS) $(LIBPBC_LDFLAGS)
+libpbc_la_LDFLAGS = -lgmp $(TCMALLOCFLAGS) -lm -version-info $(SO_VERSION) $(PBC_LDFLAGS) $(LIBPBC_LDFLAGS)
 
 # LDADD is fallback of program_LDADD
 # explicit "-lgmp" fixes error of "undefined reference to GMP symbol"
 # explicit "-lm" fixes error of "undefined reference to libm symbol"
-LDADD = libpbc.la -lgmp -lm
+LDADD = libpbc.la -lgmp $(TCMALLOCFLAGS) -lm
 noinst_PROGRAMS = pbc/pbc benchmark/benchmark benchmark/timersa benchmark/ellnet
 noinst_PROGRAMS += guru/fp_test guru/quadratic_test guru/poly_test guru/prodpairing_test
 noinst_PROGRAMS += guru/ternary_extension_field_test guru/eta_T_3_test

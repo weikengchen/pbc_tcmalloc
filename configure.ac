@@ -109,6 +109,13 @@ AC_CHECK_LIB( [gmp], [__gmpz_init], [],[
 	      echo "************************"
 	      exit -1
 	      ])
+AC_SUBST(TCMALLOCFLAGS)
+AC_CHECK_LIB( [tcmalloc], [malloc], [
+	      TCMALLOCFLAGS=" -ltcmalloc"
+	      ],[
+	      TCMALLOCFLAGS=""
+	      ])
+
 dnl Reset libs because most programs do not need to link against all of these libs.
 LIBS=
 
@@ -184,6 +191,7 @@ echo "LFLAGS:           $LFLAGS"
 echo "YACC:             $YACC"
 echo "AM_YFLAGS:        $AM_YFLAGS"
 echo "YFLAGS:           $YFLAGS"
+echo "TCMALLOCFLAGS:    $TCMALLOCFLAGS"
 echo "-----------------------------------------"
 echo -ne "\n"
 
