@@ -3,7 +3,7 @@ maintainer-clean-local:
 	-rm -rf Makefile.in
 
 AM_CPPFLAGS = -I../include
-LDADD = ../libpbc.la -lgmp
+LDADD = ../libpbc.la -lgmp $(TCMALLOCFLAGS)
 
 noinst_PROGRAMS = gena1param genaparam gendparam geneparam genfparam gengparam hilbertpoly listmnt listfreeman
 
